@@ -29,7 +29,7 @@ export default class Show extends Component {
           <h1 style={pStyle}>Gotta Catch 'Em All!</h1>
                 <div key='{pokemon}'>
                   <h2 style={pStyle}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2> <br></br>
-                  <img style={imgStyle} src={pokemon.img + '.jpg'}></img>
+                  <img style={imgStyle} src={pokemon.img + pokemon.name +'.jpg'}></img>
                 </div>
         </body>
       </div>

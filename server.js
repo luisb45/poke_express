@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const pokemon = require('./models/pokemon.js');
 
-//create express application 
+//express application 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
@@ -27,6 +27,7 @@ app.get('/pokemon/new', (req, res) => {
 
 //Create post route
 app.post('/pokemon', (req, res) => {
+    req.body.img = 'http://img.pokemondb.net/artwork/'
     pokemon.push(req.body);
     res.redirect('/pokemon');
 })
