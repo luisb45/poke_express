@@ -16,6 +16,9 @@ export default class Index extends Component {
         <div>
         <body style={backGround}>
       <h1 style={myStyle}>See All The Pokemon!</h1>
+      <nav>
+        <a href='/pokemon/new'>Add new Pokemon</a>
+      </nav>
       <ul>{
         pokemon.map((pokemon, i)=>{
             return(

@@ -3,9 +3,12 @@ const app = express();
 const port = 3000;
 const pokemon = require('./models/pokemon.js');
 
-//middleware
+//create express application 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+
+//middleware
+app.use(express.urlencoded({extended:false}));
 
 
 app.get('/', (req,res) => {
@@ -21,6 +24,12 @@ app.get('/pokemon', (req,res) =>{
 app.get('/pokemon/new', (req, res) => {
     res.render('New');
 });
+
+//Create post route
+app.post('/pokemon', (req, res) => {
+    pokemon.push(req.body);
+    res.redirect('/pokemon');
+})
 
 //Show
 app.get('/pokemon/:id', (req,res) =>{
