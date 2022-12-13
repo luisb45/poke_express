@@ -10,7 +10,8 @@ export default class Index extends Component {
         pokemon.map((pokemon, i)=>{
             return(
                 <li key='{pokemon}'>
-                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} <br></br>
+                  <a href={`/pokemon/${i}`}> link</a>
                 </li>
             )
         })
