@@ -1,16 +1,37 @@
 import React, { Component } from 'react'
 
+const pStyle = {
+  textAlign: 'center',
+  fontFamily: 'Fantasy',
+  fontSize: '45px'
+};
+
+const imgStyle = {
+  display: 'flex',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  width: '30%',
+  border: '8px solid'
+};
+
+const backGround = {
+  height: '100%',
+  background: 'linear-gradient(90deg, red 50%, white 50%)'
+}
+
 export default class Show extends Component {
   render() {
     const {pokemon} = this.props
     return (
         <div>
-      <h1>Gotta Catch 'Em All!</h1>
-      <a href={`/pokemon`}> back</a>
+          <body style={backGround}>
+          <a href={`/pokemon`}> back</a>
+          <h1 style={pStyle}>Gotta Catch 'Em All!</h1>
                 <div key='{pokemon}'>
-                  <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2> <br></br>
-                  <img src={pokemon.img + '.jpg'}></img>
+                  <h2 style={pStyle}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2> <br></br>
+                  <img style={imgStyle} src={pokemon.img + '.jpg'}></img>
                 </div>
+        </body>
       </div>
     )
   }
