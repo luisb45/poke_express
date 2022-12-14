@@ -5,10 +5,12 @@ export default class New extends Component {
     return (
       <div>
         <h1>Add a New Pokemon</h1>
+        
         <form action='/pokemon' method='POST'>
             Name: <input type='text' name='name' /><br/>
             <input type='submit' name='' value='Add Pokemon'/>
         </form>
+        <a href='/pokemon'>Back</a>
       </div>
     )
   }
