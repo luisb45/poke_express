@@ -20,10 +20,10 @@ export default class Index extends Component {
         <a href='/pokemon/new'>Add new Pokemon</a>
       </nav>
       <ul>{
-        pokemon.map((pokemon, i)=>{
+        pokemon.map((pokemon)=>{
             return(
                 <li key='{pokemon}'>
-                  <a href={`/pokemon/${i}`}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} <br></br></a>
+                  <a href={`/pokemon/${pokemon.id}`}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} <br></br></a>
                 </li>
             )
         })
