@@ -29,13 +29,13 @@ mongoose.connection.once('open', () => {
 //Seed Route
 app.get('/pokemon/seed', (req, res) =>{
     const seededPokemon = [
-    {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/"},
-    {name: "ivysaur", img: "http://img.pokemondb.net/artwork/"},
-    {name: "venusaur", img: "http://img.pokemondb.net/artwork/"},
-    {name: "charmander", img: "http://img.pokemondb.net/artwork/"},
-    {name: "charizard", img: "http://img.pokemondb.net/artwork/"},
-    {name: "squirtle", img: "http://img.pokemondb.net/artwork/"},
-    {name: "wartortle", img: "http://img.pokemondb.net/artwork/"}
+    {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/", readyToEvolve: true},
+    {name: "ivysaur", img: "http://img.pokemondb.net/artwork/", readyToEvolve: false},
+    {name: "venusaur", img: "http://img.pokemondb.net/artwork/", readyToEvolve: false},
+    {name: "charmander", img: "http://img.pokemondb.net/artwork/", readyToEvolve: true},
+    {name: "charizard", img: "http://img.pokemondb.net/artwork/", readyToEvolve: false},
+    {name: "squirtle", img: "http://img.pokemondb.net/artwork/", readyToEvolve: false},
+    {name: "wartortle", img: "http://img.pokemondb.net/artwork/", readyToEvolve: true}
     ];
     pokemon.deleteMany({}).then((data) => {
         pokemon.create(seededPokemon).then((data) =>{
@@ -65,6 +65,7 @@ app.get('/pokemon/new', (req, res) => {
 //Create post route
 app.post('/pokemon', (req, res) => {
     req.body.img = `http://img.pokemondb.net/artwork/` 
+    req.body.readyToEvolve = req.body.readyToEvolve === "on" ? true : false;
     pokemon.create(req.body, (error, createdPokemon)=>{
         res.redirect('/pokemon');
     });
@@ -72,6 +73,7 @@ app.post('/pokemon', (req, res) => {
 
 //Update
 app.put('/pokemon/:id', (req, res) =>{
+    req.body.readyToEvolve = req.body.readyToEvolve === "on" ? true : false;
     pokemon.findByIdAndUpdate(req.params.id, req.body, (err, updatedPokemon) =>{
         res.redirect(`/pokemon/${req.params.id}`);
     });

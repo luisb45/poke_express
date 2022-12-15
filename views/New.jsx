@@ -8,6 +8,7 @@ export default class New extends Component {
         
         <form action='/pokemon' method='POST'>
             Name: <input type='text' name='name' /><br/>
+            Ready To Evolve: <input type="checkbox" name="readyToEvolve"/><br/>
             <input type='submit' name='' value='Add Pokemon'/>
         </form>
         <a href='/pokemon'>Back</a>

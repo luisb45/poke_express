@@ -28,7 +28,8 @@ export default class Show extends Component {
           <a href={`/pokemon`}> back</a>
           <h1 style={pStyle}>Gotta Catch 'Em All!</h1>
                 <div key='{pokemon}'>
-                  <h2 style={pStyle}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2> <br></br>
+                  <h2 style={pStyle}>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2> <br/>
+                  <h3 style={pStyle}>{pokemon.readyToEvolve ? `Ready to evolve!`: "Not ready to evolve"}</h3>
                   <img style={imgStyle} src={pokemon.img + pokemon.name +'.jpg'}></img>
                 </div>
         </body>
